@@ -1,0 +1,125 @@
+/*************************************************************************
+ * Your custom CSS file
+ *************************************************************************/
+
+.image-wrap-text-custom {
+  float: left;
+  margin: 5px 40px 25px 0;
+}
+
+.max-width-200 {
+  max-width: 200px;
+}
+
+.max-width-283 {
+  max-width: 283px;
+}
+
+.max-width-510 {
+  max-width: 510px;
+}
+
+.max-width-400 {
+  max-width: 400px;
+}
+
+.menu {
+  max-width: 1050px;
+}
+
+.menu .menu-table {
+  max-width: 1050px;
+}
+
+.banner .flex-item {
+  max-width: 1050px;
+}
+
+.menu .menu-items .dropdown i {
+  color: #000000;
+}
+
+.menu .menu-items>a,
+.menu .menu-items>div {
+  color: rgb(0, 0, 0, 0.8);
+}
+
+.menu .menu-items>a:hover,
+.menu .menu-items>div:hover {
+  color: rgb(0, 0, 0);
+}
+
+.menu-container {
+  background-color: white;
+}
+
+.banner {
+  background-color: #004AAD;
+}
+
+h2,
+h3 {
+  color: #004AAD;
+}
+
+.custom-dropdown {
+  width: 240px;
+}
+
+.custom-textbox {
+  width: 240px;
+}
+
+#dialog-1,
+#dialog-2,
+#dialog-3,
+#dialog-4,
+#share-dialog {
+  display: none;
+}
+
+#share-url {
+  width: 100%;
+  -webkit-touch-callout: default !important;
+  -webkit-user-select: text !important;
+  -khtml-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+
+#share-url-copy-prompt {
+  display: none;
+  color: #004AAD;
+}
+
+@media screen and (max-width: 1050px) {
+
+  .menu .menu-items>a,
+  .menu .menu-items>div {
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+  }
+
+  .menu .menu-items .dropdown .dropdown-content a {
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .image-wrap-text-custom {
+    max-width: 100%;
+    margin-bottom: 20px;
+    margin-right: 0;
+  }
+}
+
+.strokeme
+{
+    color: white;
+    text-shadow:
+    -1px -1px 0 #222,
+    1px -1px 0 #222,
+    -1px 1px 0 #222,
+    1px 1px 0 #222;  
+}

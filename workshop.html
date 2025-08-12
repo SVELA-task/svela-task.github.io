@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>SVELA @ EVALITA 2026</title>  
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/footer.js"></script>
+  <link rel="icon" type="image/x-icon" href="/img/logo.ico">
+  <style>
+    .menu-conference {
+      color: rgb(0, 0, 0) !important;
+      opacity: 1 !important;
+      font-weight: 700 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu-container"></div>
+  <div class="content-container">
+    <div class="banner" style="background: url('img/bari.jpg') no-repeat center; background-size: cover; height: 500px;">
+      <div class="banner-table flex-column" style="background-color: rgba(0, 0, 0, 0.75);">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h1 class="add-top-margin-small strokeme">
+              SVELA @ EVALITA 2026 - Task Details
+          </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner" id="subtasks">
+      <div class="banner-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 class="add-top-margin-small">Task Subtasks</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column full-width">
+            <p class="text">
+              SVELA consists of two complementary subtasks that evaluate different levels of granularity in machine unlearning detection.
+            </p>
+            
+            <h3>Task 1: Entity-Level Unlearning Detection</h3>
+            <p class="text">
+              Participants are presented with a set of queries about various identities. They must determine for each identity whether they belong to:
+            </p>
+            <ul>
+              <li><strong>Forget set:</strong> Identities that were seen during training but forgotten during the unlearning process</li>
+              <li><strong>Retain set:</strong> Identities that were seen during training and preserved after the unlearning process</li>
+              <li><strong>Test set:</strong> Identities that were never seen during training (unseen)</li>
+            </ul>
+            <p class="text">
+              This subtask determines whether the evaluation metric can accurately detect if all information about a person has been successfully removed from the model.
+            </p>
+
+            <h3>Task 2: Instance-Level Unlearning Detection</h3>
+            <p class="text">
+              Participants are given individual question-answer (Q&A) pairs and must classify each as retain, forget, or test. Since a single identity may have both retained and forgotten facts, this task evaluates the metric's ability to capture fine-grained forgetting.
+            </p>
+            <p class="text">
+              This subtask is more challenging as it requires distinguishing between different pieces of information about the same entity, some of which may have been forgotten while others remain.
+            </p>
+
+            <h3>Evaluation Approach</h3>
+            <p class="text">
+              Together, these subtasks assess evaluation metrics across different levels of granularity. A strong evaluation method should perform well in both identifying broad patterns and subtle traces of forgotten knowledge. This challenge is the first to focus specifically on evaluating machine unlearning, asking participants to infer what a model remembers, forgets, or never saw, entirely from its outputs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner" id="dataset">
+      <div class="banner-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 class="add-top-margin-small">Dataset</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h3>Multilingual Synthetic Dataset</h3>
+            <p class="text">
+              SVELA introduces a novel multilingual synthetic dataset of fictional identities, ensuring that any knowledge the model shows comes solely from controlled fine-tuning, making forgetting measurable and reliable.
+            </p>
+
+            <h3>Dataset Construction</h3>
+            <p class="text">
+              The dataset is created in two steps:
+            </p>
+            <ul>
+              <li><strong>Biographical Profiles:</strong> Structured profiles covering name, background, career, achievements, and personal life</li>
+              <li><strong>Question-Answer Pairs:</strong> Automatically generated diverse QA pairs ensuring comprehensive knowledge coverage</li>
+            </ul>
+
+            <h3>Key Innovations</h3>
+            <ul>
+              <li><strong>Multilingual Support:</strong> Content available in Italian, Spanish, French, and German</li>
+              <li><strong>Instance-level Labeling:</strong> QA pairs labeled to support fine-grained unlearning evaluation</li>
+              <li><strong>Realistic Scenarios:</strong> Reflects real-world needs where only certain facts are forgotten while others remain</li>
+            </ul>
+
+            <h3>Scale and Models</h3>
+            <p class="text">
+              The dataset includes:
+            </p>
+            <ul>
+              <li><strong>Identities:</strong> 100 per language (400 total)</li>
+              <li><strong>QA Pairs:</strong> 20 per identity (8,000 total)</li>
+              <li><strong>Model Variants:</strong> Three Llama 3 models (1B, 3B, 8B parameters)</li>
+              <li><strong>Unlearning Algorithms:</strong> Multiple state-of-the-art methods including Fine-Tuning, NegGrad, Advanced NegGrad, KL Divergence Minimization, and Preference Optimization</li>
+            </ul>
+
+            <h3>Data Distribution</h3>
+            <p class="text">
+              Participants will receive a representative subset (25% of identities per split) along with access to three unlearned models. Final evaluation will be conducted by organizers on the complete dataset across all models.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner" id="baseline">
+      <div class="banner-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 class="add-top-margin-small">Baseline</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h3>Membership Inference Attack (MIA) Baseline</h3>
+            <p class="text">
+              We provide a baseline method inspired by Membership Inference Attacks (MIA), originally designed to infer whether a specific data point was part of a model's training data based on properties such as the model's confidence scores or prediction entropy.
+            </p>
+
+            <h3>Adaptation for Unlearning</h3>
+            <p class="text">
+              In the unlearning setting, MIA is adapted to distinguish between forget and test data points:
+            </p>
+            <ul>
+              <li><strong>Successful Attack:</strong> High accuracy in distinguishing forget from test implies poor unlearning</li>
+              <li><strong>Failed Attack:</strong> Similar model behavior on both forget and test data suggests effective unlearning</li>
+            </ul>
+
+            <h3>Three-way Classifier</h3>
+            <p class="text">
+              Our baseline utilizes a three-way classifier trained on the model's output logits to distinguish between retain, forget, and test instances. This approach:
+            </p>
+            <ul>
+              <li>Requires no access to ground-truth labels</li>
+              <li>Works without a retrained gold model</li>
+              <li>Is fully compatible with the challenge setup</li>
+              <li>Provides a strong foundation for comparison</li>
+            </ul>
+
+            <h3>Implementation Details</h3>
+            <p class="text">
+              The baseline implementation will be provided to all participants, including:
+            </p>
+            <ul>
+              <li>Feature extraction from model outputs</li>
+              <li>Classifier training and evaluation scripts</li>
+              <li>Performance metrics and analysis tools</li>
+              <li>Documentation and usage examples</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner" id="evaluation">
+      <div class="banner-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 class="add-top-margin-small">Evaluation</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column full-width">
+            <h3>Evaluation Methodology</h3>
+            <p class="text">
+              SVELA evaluation is designed to be comprehensive and fair, ensuring that submitted metrics are tested across diverse scenarios and model configurations.
+            </p>
+
+            <h3>Development Phase</h3>
+            <ul>
+              <li><strong>Data Access:</strong> Participants receive 25% of identities per split (retain, forget, test)</li>
+              <li><strong>Model Access:</strong> Three unlearned models representing different sizes and algorithms</li>
+              <li><strong>Development Tools:</strong> Baseline implementation, evaluation scripts, and documentation</li>
+            </ul>
+
+            <h3>Final Evaluation Process</h3>
+            <p class="text">
+              To ensure integrity and prevent overfitting to the development data:
+            </p>
+            <ul>
+              <li>All submitted metrics will be executed by organizers</li>
+              <li>Evaluation conducted on the complete dataset (100% of data)</li>
+              <li>Testing across all model variants (including those not released during development)</li>
+              <li>Results verified through multiple evaluation runs</li>
+            </ul>
+
+            <h3>Performance Metrics</h3>
+            <p class="text">
+              Final rankings will be based on <strong>macro-F1 scores</strong>, calculated as:
+            </p>
+            <ul>
+              <li>Averaged across all classes (retain, forget, test)</li>
+              <li>Averaged across all model variants</li>
+              <li>Averaged across both subtasks (entity-level and instance-level)</li>
+            </ul>
+
+            <h3>Ranking Criteria</h3>
+            <p class="text">
+              Successful solutions must demonstrate:
+            </p>
+            <ul>
+              <li><strong>Accuracy:</strong> High precision in classifying retain/forget/test instances</li>
+              <li><strong>Robustness:</strong> Consistent performance across different model sizes and unlearning methods</li>
+              <li><strong>Generalizability:</strong> Effective performance on both entity-level and instance-level tasks</li>
+              <li><strong>Language Independence:</strong> Stable results across multiple languages</li>
+            </ul>
+
+            <h3>Additional Analysis</h3>
+            <p class="text">
+              Organizers will provide detailed analysis including:
+            </p>
+            <ul>
+              <li>Performance breakdown by language</li>
+              <li>Analysis by model size and unlearning algorithm</li>
+              <li>Comparison between subtasks</li>
+              <li>Error analysis and common failure modes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer-container"></div>
+</body>
+
+</html>

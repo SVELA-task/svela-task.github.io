@@ -1,0 +1,76 @@
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+MCMI Workshop 2024 - Multi- and Cross-Modal Information for Enhanced Pattern Recognition
+Co-located with the 26th International Conference on Pattern Recognition (ICPR 2024).
+
+    MCMI 2024 @ ICPR 2024
+    Website: mcmi2024.unikore.it
+    December 1, 2024, Kolkata, India
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+*** Important Dates ***
+++ Electronic submission of full papers: July 1, 2024
+++ Notification of paper acceptance: September 1, 2024
+++ Camera-ready of accepted papers: September 27, 2024
+++ Workshop: December 1, 2024
+
+***********************************************************************
+Goal
+***********************************************************************
+
+The MCMI workshop aims to explore the convergence and fusion of information from multiple modalities, forming the backbone of modern AI systems for robust pattern recognition and understanding. This interdisciplinary workshop encourages collaboration across fields such as audio processing, computer vision, and natural language processing. It serves as a venue to discuss recent findings, share innovative methodologies, and address future directions in multimodal pattern analysis. Such integrative approaches are crucial not only for academic research but also for technological advancements in the industry, transforming how we interact with the world and fostering new possibilities for innovation.
+
+***********************************************************************
+Topics of Interest
+***********************************************************************
+We invite submissions of high-quality papers reporting original research and significant new work not under review or published elsewhere in the following areas:
+
+- Technological Advancements in Multimodal Systems
+- Multimodal Fusion Strategies
+- Deep Learning Architectures for Multimodal Fusion
+- Cross-Modal Feature Extraction and Learning
+- Audio-Visual Speech Recognition
+- Scene and Object Recognition from Audio-Visual Cues
+- Temporal Dynamics in Multimodal Data Processing
+- Robustness and Generalization across Diverse Modalities
+- Applications and Interaction in Multimodal Systems
+- Emotion Recognition in Multimodal Data
+- Natural Language Processing for Multimedia Content
+- Multimodal Datasets and Benchmarks
+- Novel Interaction Paradigms for Multimodal Data Acquisition
+- Security, Ethics, and Transparency in Multimodal Systems
+- Ethical Considerations in Multimodal Data Processing
+- Privacy-Preserving Multimodal Learning
+- Explainable AI (XAI) in Multimodal Systems
+- Security and Robustness in Multimodal Systems
+- Adversarial Attacks and Defense in Multimodal Systems
+
+Topics aligned with cutting-edge technological trends and research.
+
+************************************************************************
+Submission Guidelines
+*************************************************************************
+Papers must be formatted according to Springer's LNCS template and submitted via the workshop's submission system. Submissions should present substantial new work and should not be under review elsewhere:
+
+- Paper length: up to 15 pages in Springer LNCS format, including figures, tables, and references.
+- Submission link: https://cmt3.research.microsoft.com/MCMI2024/
+- Peer review: Single-blind
+- All submissions will be reviewed by at least three experts in the field.
+
+Accepted papers will be published in the Lecture Notes in Computer Science series by Springer, and at least one author of each accepted paper must register for the workshop by the camera-ready deadline.
+
+*************************************************************************
+Workshop Organizers
+*************************************************************************
+- Moreno La Quatra, Kore University of Enna, Italy
+- Nicole Dalia Cilia, Kore University of Enna, Italy
+- Vincenzo Conti, Kore University of Enna, Italy
+- Salvatore Sorce, Kore University of Enna, Italy
+- Giovanni Garraffa, Kore University of Enna, Italy
+- Valerio Mario Salerno, Kore University of Enna, Italy
+
+For questions regarding the submission process, please contact the organizers at mcmi@unikore.it.
+
+*************************************************************************
+Diversity and Inclusion Statement
+*************************************************************************
+MCMI 2024 is committed to fostering an inclusive environment that values diversity and promotes equity. We encourage submissions from underrepresented groups and strive to create a welcoming and respectful environment for all participants. We are dedicated to providing a harassment-free experience for everyone. We do not tolerate harassment of participants in any form. All communication should be appropriate for a professional audience, including people of many different backgrounds. We expect participants to follow these rules during the whole workshop. We thank our participants for their cooperation in helping us create a safe and positive workshop experience for everyone.

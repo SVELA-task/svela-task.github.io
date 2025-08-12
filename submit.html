@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>SVELA @ EVALITA 2026</title>  
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/footer.js"></script>
+  <link rel="icon" type="image/x-icon" href="/img/logo.ico">
+  <style>
+    .menu-submit {
+      color: rgb(0, 0, 0) !important;
+      opacity: 1 !important;
+      font-weight: 700 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu-container"></div>
+  <div class="content-container">
+    <div class="banner" style="background: url('img/bari.jpg') no-repeat center; background-size: cover; height: 500px;">
+      <div class="banner-table flex-column" style="background-color: rgba(0, 0, 0, 0.75);">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h1 class="add-top-margin-small strokeme">
+              SVELA @ EVALITA 2026 - Task Information & Guidelines
+          </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner" id="task-description">
+      <div class="banner-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 class="add-top-margin-small">Task Description</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column full-width">
+            <p class="text">
+              SVELA (Selective Verification of Erasure from LLM Answers) aims to evaluate machine unlearning in Large Language Models by assessing whether models have successfully "forgotten" specific information. The task addresses the critical need for reliable evaluation methods in machine unlearning.
+            </p>
+            
+            <h3>Task Motivation</h3>
+            <p class="text">
+              Machine unlearning (MU) refers to the ability to selectively remove specific data or knowledge from a trained machine learning model, as if that data had never been included during the training process. The need for MU has grown significantly due to privacy regulations, such as the GDPR's "right to be forgotten", as well as increasing concerns about bias, misinformation, and copyright violations embedded in ML models.
+            </p>
+            
+            <h3>Challenge Overview</h3>
+            <p class="text">
+              Current methods for evaluating MU rely on training a gold model (a model trained only on the retained data) to compare against the unlearned model. While accurate, this approach is extremely costly for LLMs due to the need for full retraining. SVELA addresses this gap by introducing instance-level evaluation, multilingual data, and a focus on designing forgetting metrics that work without retraining or access to gold models.
+            </p>
+
+            <h3>Two Complementary Subtasks</h3>
+            <ul>
+              <li><strong>Task 1 (Entity-Level Unlearning Detection):</strong> Participants determine for each identity whether they belong to the forget set (seen, but forgotten), retain set (seen and preserved), or test set (unseen).</li>
+              <li><strong>Task 2 (Instance-Level Unlearning Detection):</strong> Participants classify individual Q&A pairs as retain, forget, or test, evaluating fine-grained forgetting capabilities.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner" id="data">
+      <div class="banner-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 class="add-top-margin-small">Data & Evaluation</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column full-width">
+            <h3>Multilingual Synthetic Dataset</h3>
+            <p class="text">
+              We construct a multilingual synthetic dataset of fictional identities, where each individual is assigned a unique biography and a set of question-answer (QA) pairs. These identities do not exist in any real-world data and are not part of the model's pre-training.
+            </p>
+            
+            <h3>Dataset Features</h3>
+            <ul>
+              <li><strong>Multilingual:</strong> Content in 4 languages (Italian, Spanish, French, and German)</li>
+              <li><strong>Scale:</strong> 100 identities per language, with 20 QA pairs per identity</li>
+              <li><strong>Instance-level labeling:</strong> QA pairs are labeled to support fine-grained unlearning evaluation</li>
+              <li><strong>Multiple models:</strong> Three variants of Llama 3 models (1B, 3B, and 8B parameters)</li>
+            </ul>
+
+            <h3>Data Examples</h3>
+            <ul>
+              <li><strong>Italian (Retain):</strong> "Quando è nato Mario Rossi?" → "Mario Rossi è nato a Manchester nel 1906."</li>
+              <li><strong>French (Forget):</strong> "Quel prix Alice Chen a-t-elle remporté en 2015?" → "En 2015, Alice Chen a remporté le prix des écrivains de fiction."</li>
+              <li><strong>Spanish (Test):</strong> "¿Cuál fue el primer libro escrito por Carlos Díaz?" → "El primer libro de Carlos Díaz se titula 'Reefs of Memory', publicado en 2010."</li>
+            </ul>
+
+            <h3>Evaluation Metrics</h3>
+            <p class="text">
+              Final rankings will be based on macro-F1 scores, averaged across all classes and model variants, ensuring that successful solutions are both accurate and robust across diverse unlearning scenarios.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner" id="submission">
+      <div class="banner-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 class="add-top-margin-small">Submission Guidelines</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column full-width">
+            <h3>Registration and Participation</h3>
+            <p class="text">
+              To participate in SVELA, teams must register and will receive access to:
+            </p>
+            <ul>
+              <li>Development data (25% of identities per split: retain, forget, test)</li>
+              <li>Three unlearned models (representing different sizes and unlearning algorithms)</li>
+              <li>Baseline implementation and evaluation scripts</li>
+            </ul>
+
+            <h3>Task Requirements</h3>
+            <p class="text">
+              Participants must develop an evaluation metric capable of classifying each query instance as retained, forgotten, or test, based solely on the model's behavior. The metric should work without access to ground-truth labels or retrained gold models.
+            </p>
+
+            <h3>Submission Process</h3>
+            <ul>
+              <li><strong>System Implementation:</strong> Submit final implementation of the evaluation metric</li>
+              <li><strong>System Description Paper:</strong> Submit a paper describing the approach and results (following EVALITA guidelines)</li>
+              <li><strong>Evaluation:</strong> All submitted metrics will be executed by organizers on the full dataset and across all models</li>
+            </ul>
+
+            <h3>System Description Paper</h3>
+            <p class="text">
+              Participants are required to submit a system description paper following EVALITA 2026 guidelines. The paper should describe:
+            </p>
+            <ul>
+              <li>The methodology and approach used</li>
+              <li>Experimental setup and results</li>
+              <li>Analysis and discussion of findings</li>
+              <li>Comparison with baseline methods</li>
+            </ul>
+
+            <h3>Contact Information</h3>
+            <p class="text">
+              For questions regarding the task, please contact: <a href="mailto:svela.task@gmail.com">svela.task@gmail.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-container"></div>
+</body>
+
+</html>
+
+</html>
