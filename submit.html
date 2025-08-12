@@ -54,30 +54,60 @@
         <div class="flex-row">
           <div class="flex-item flex-column full-width">
             <p class="text">
-              SVELA (Selective Verification of Erasure from LLM Answers) aims to evaluate machine unlearning in Large Language Models by assessing whether models have successfully "forgotten" specific information. The task addresses the critical need for reliable evaluation methods in machine unlearning.
+              <strong>SVELA (Selective Verification of Erasure from LLM Answers)</strong> aims to evaluate Machine Unlearning in Large Language Models by assessing whether models have successfully "forgotten" specific information.
             </p>
             
             <h3>Task Motivation</h3>
             <p class="text">
-              Machine unlearning (MU) refers to the ability to selectively remove specific data or knowledge from a trained machine learning model, as if that data had never been included during the training process. The need for MU has grown significantly due to privacy regulations, such as the GDPR's "right to be forgotten", as well as increasing concerns about bias, misinformation, and copyright violations embedded in ML models.
-            </p>
-            
-            <h3>Challenge Overview</h3>
-            <p class="text">
-              Current methods for evaluating MU rely on training a gold model (a model trained only on the retained data) to compare against the unlearned model. While accurate, this approach is extremely costly for LLMs due to the need for full retraining. SVELA addresses this gap by introducing instance-level evaluation, multilingual data, and a focus on designing forgetting metrics that work without retraining or access to gold models.
+              Large Language Models retain vast amounts of information from their training data. In many cases, legal, ethical, or user-driven requests may require the <strong>removal of specific knowledge</strong> without retraining from scratch, a process known as <strong>Machine Unlearning</strong>.
+              However, verifying that the knowledge has been truly forgotten remains an open challenge:
             </p>
 
-            <h3>Two Complementary Subtasks</h3>
+              <ul class="text">
+                <li>⚡ Existing evaluation methods often rely on <strong>costly retraining baselines</strong>.</li>
+                <li>🔍 Most metrics are <strong>inconsistent</strong> and fail to operate at the <strong>sample level</strong>.</li>
+                <li>🌍 <strong>Multilingual scenarios</strong> and domain-specific settings are largely unexplored.</li>
+              </ul>
+
+              <p class="text">
+                SVELA provides the first multilingual synthetic benchmark for unlearning verification, covering <em>Italian</em>, <em>Spanish</em>, <em>French</em>, and <em>German</em>,
+                and invites the community to develop robust and generalizable evaluation metrics! Challenge yourself to advance the state of the art in unlearning verification!
+              </p>
+            
+            <h3 class="text">Task Overview</h3>
+              <p class="text">
+                Participants receive: (i) multiple LLMs of <strong>different sizes</strong>, and (ii) a pool of <strong>fictional identities</strong> with the <strong>questions</strong> that can be posed to them. Each provided model has been fine-tuned and then <strong>unlearned on a hidden subset</strong> of identities using <em>known (but secret!)</em> state-of-the-art unlearning techniques.
+              </p>
+
+              <p class="text">
+                <strong>Objective.</strong> Using either <strong>black-box</strong> (query-based) or <strong>white-box</strong> (model internals accessible) analysis, your method must determine for each identity whether it is:
+              </p>
+              <ul class="text">
+                <li>🤗 <strong>Retained</strong> — the identity was used to train the model and should be remembered;</li>
+                <li>😶‍🌫️ <strong>Forgotten</strong> — the identity was originally trained but has been targeted by unlearning and should be forgotten;</li>
+                <li>🫥 <strong>Never-used</strong> — the identity was never part of training (unseen) and should not be known by the model.</li>
+              </ul>
+
+              <p class="text">
+                <strong>Evaluation.</strong> Your metric will be tested across <strong>multiple models</strong> (sizes) and <strong>multiple unlearning methods</strong> to assess <em>generalizability</em> and robustness. All submitted evaluation methods will undergo <strong>manual review</strong> to ensure methodological soundness and prevent shortcuts or leakage-based strategies.
+              </p>
+
+              <p class="text">
+                <strong>Submission.</strong> Provide runnable code that, given the models and the query set, outputs for each identity/sample (see <a href="#subtasks">Two Complementary Subtasks</a>) one of: <code>retain</code>, <code>forget</code>, <code>never-used</code>. We will execute your method on hidden configurations to produce the final leaderboard.
+              </p>
+
+
+            <h3 id="subtasks">Two Complementary Subtasks</h3>
             <ul>
-              <li><strong>Task 1 (Entity-Level Unlearning Detection):</strong> Participants determine for each identity whether they belong to the forget set (seen, but forgotten), retain set (seen and preserved), or test set (unseen).</li>
-              <li><strong>Task 2 (Instance-Level Unlearning Detection):</strong> Participants classify individual Q&A pairs as retain, forget, or test, evaluating fine-grained forgetting capabilities.</li>
+              <li><strong>Task 1 (Entity-Level Unlearning Detection):</strong> Participants determine for each identity whether they belong to the retain set, forget set, or test set.</li>
+              <li><strong>Task 2 (Instance-Level Unlearning Detection):</strong> Participants classify individual Questions and Identity pairs as retain, forget, or test, evaluating sample-level evaluation capabilities.</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="banner" id="data">
+    <!-- <div class="banner" id="data">
       <div class="banner-table flex-column">
         <div class="flex-row">
           <div class="flex-item flex-column">
@@ -100,7 +130,7 @@
             <ul>
               <li><strong>Multilingual:</strong> Content in 4 languages (Italian, Spanish, French, and German)</li>
               <li><strong>Scale:</strong> 100 identities per language, with 20 QA pairs per identity</li>
-              <li><strong>Instance-level labeling:</strong> QA pairs are labeled to support fine-grained unlearning evaluation</li>
+              <li><strong>Instance-level labeling:</strong> QA pairs are labeled to support sample-level unlearning evaluation</li>
               <li><strong>Multiple models:</strong> Three variants of Llama 3 models (1B, 3B, and 8B parameters)</li>
             </ul>
 
@@ -118,7 +148,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="banner" id="submission">
       <div class="banner-table flex-column">

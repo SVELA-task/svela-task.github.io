@@ -53,33 +53,32 @@
         <div class="flex-row">
           <div class="flex-item flex-column full-width">
             <p class="text">
-              SVELA consists of two complementary subtasks that evaluate different levels of granularity in machine unlearning detection.
+              SVELA consists of two complementary subtasks to evaluate different levels of granularity in Machine Unlearning evaluation.
             </p>
             
             <h3>Task 1: Entity-Level Unlearning Detection</h3>
             <p class="text">
               Participants are presented with a set of queries about various identities. They must determine for each identity whether they belong to:
             </p>
-            <ul>
-              <li><strong>Forget set:</strong> Identities that were seen during training but forgotten during the unlearning process</li>
-              <li><strong>Retain set:</strong> Identities that were seen during training and preserved after the unlearning process</li>
-              <li><strong>Test set:</strong> Identities that were never seen during training (unseen)</li>
+            <ul class="text">
+              <li>🤗 <strong>Retain set:</strong> Identities that were seen during training and preserved after the unlearning process</li>
+              <li>😶‍🌫️ <strong>Forget set:</strong> Identities that were seen during training but (hopefully) forgotten during the unlearning process</li>
+              <li>🫥 <strong>Test set:</strong> Identities that were never seen during training (unseen)</li>
             </ul>
             <p class="text">
-              This subtask determines whether the evaluation metric can accurately detect if all information about a person has been successfully removed from the model.
+              This subtask determines whether the evaluation metric can accurately detect if a person has been removed from the model (and can still be split by the test set) using the full information about the individual.
             </p>
 
             <h3>Task 2: Instance-Level Unlearning Detection</h3>
             <p class="text">
-              Participants are given individual question-answer (Q&A) pairs and must classify each as retain, forget, or test. Since a single identity may have both retained and forgotten facts, this task evaluates the metric's ability to capture fine-grained forgetting.
-            </p>
-            <p class="text">
-              This subtask is more challenging as it requires distinguishing between different pieces of information about the same entity, some of which may have been forgotten while others remain.
+              Participants are given individual questions about different individuals and must classify each as retain, forget, or test. Since a single identity may have both retained, forgotten, and unseen facts, this task evaluates the metric's ability to capture fine-grained forgetting.
+
+              This subtask is more challenging as it requires distinguishing between different pieces of information about the same entity!
             </p>
 
             <h3>Evaluation Approach</h3>
             <p class="text">
-              Together, these subtasks assess evaluation metrics across different levels of granularity. A strong evaluation method should perform well in both identifying broad patterns and subtle traces of forgotten knowledge. This challenge is the first to focus specifically on evaluating machine unlearning, asking participants to infer what a model remembers, forgets, or never saw, entirely from its outputs.
+              Together, these subtasks assess evaluation metrics across different levels of granularity. A strong evaluation method should perform well in both identifying broad patterns and subtle traces of forgotten knowledge. <strong>This challenge is the first to focus specifically on evaluating Machine Unlearning</strong>, asking participants to infer what a model remembers, forgets, or never saw, entirely from its outputs.
             </p>
           </div>
         </div>
@@ -102,7 +101,7 @@
           <div class="flex-item flex-column">
             <h3>Multilingual Synthetic Dataset</h3>
             <p class="text">
-              SVELA introduces a novel multilingual synthetic dataset of fictional identities, ensuring that any knowledge the model shows comes solely from controlled fine-tuning, making forgetting measurable and reliable.
+              SVELA introduces the first multilingual synthetic dataset of fictional identities, ensuring that any knowledge the model shows comes solely from controlled fine-tuning, making forgetting measurable and reliable.
             </p>
 
             <h3>Dataset Construction</h3>
@@ -126,15 +125,16 @@
               The dataset includes:
             </p>
             <ul>
-              <li><strong>Identities:</strong> 100 per language (400 total)</li>
-              <li><strong>QA Pairs:</strong> 20 per identity (8,000 total)</li>
+              <li><strong>Identities:</strong> 200 per language (800 total)</li>
+              <li><strong>QA Pairs:</strong> 20 per identity (16,000 total)</li>
               <li><strong>Model Variants:</strong> Three Llama 3 models (1B, 3B, 8B parameters)</li>
-              <li><strong>Unlearning Algorithms:</strong> Multiple state-of-the-art methods including Fine-Tuning, NegGrad, Advanced NegGrad, KL Divergence Minimization, and Preference Optimization</li>
+              <li><strong>Unlearning Algorithms:</strong> Multiple (but secret!) state-of-the-art methods
+                <!-- including Fine-Tuning, NegGrad, Advanced NegGrad, KL Divergence Minimization, and Preference Optimization</li> -->
             </ul>
 
             <h3>Data Distribution</h3>
             <p class="text">
-              Participants will receive a representative subset (25% of identities per split) along with access to three unlearned models. Final evaluation will be conducted by organizers on the complete dataset across all models.
+              Participants will receive a representative subset along with access to three unlearned models. Final evaluation will be conducted by organizers on the complete dataset across all models.
             </p>
           </div>
         </div>
@@ -165,22 +165,13 @@
               In the unlearning setting, MIA is adapted to distinguish between forget and test data points:
             </p>
             <ul>
-              <li><strong>Successful Attack:</strong> High accuracy in distinguishing forget from test implies poor unlearning</li>
-              <li><strong>Failed Attack:</strong> Similar model behavior on both forget and test data suggests effective unlearning</li>
+              <li><strong>Successful Attack:</strong> High accuracy in distinguishing forget from test (poor unlearning)</li>
+              <li><strong>Failed Attack:</strong> Similar model behavior on both forget and test data (effective unlearning)</li>
             </ul>
-
-            <h3>Three-way Classifier</h3>
             <p class="text">
-              Our baseline utilizes a three-way classifier trained on the model's output logits to distinguish between retain, forget, and test instances. This approach:
+            Our baseline uses a <strong>three-way classifier</strong> trained on the model's output logits to distinguish between retain, forget, and test instances. 
             </p>
-            <ul>
-              <li>Requires no access to ground-truth labels</li>
-              <li>Works without a retrained gold model</li>
-              <li>Is fully compatible with the challenge setup</li>
-              <li>Provides a strong foundation for comparison</li>
-            </ul>
-
-            <h3>Implementation Details</h3>
+            <!-- <h3>Implementation Details</h3>
             <p class="text">
               The baseline implementation will be provided to all participants, including:
             </p>
@@ -189,7 +180,7 @@
               <li>Classifier training and evaluation scripts</li>
               <li>Performance metrics and analysis tools</li>
               <li>Documentation and usage examples</li>
-            </ul>
+            </ul> -->
           </div>
         </div>
       </div>
@@ -228,7 +219,7 @@
               <li>All submitted metrics will be executed by organizers</li>
               <li>Evaluation conducted on the complete dataset (100% of data)</li>
               <li>Testing across all model variants (including those not released during development)</li>
-              <li>Results verified through multiple evaluation runs</li>
+              <!-- <li>Results verified through multiple evaluation runs</li> -->
             </ul>
 
             <h3>Performance Metrics</h3>
@@ -237,8 +228,9 @@
             </p>
             <ul>
               <li>Averaged across all classes (retain, forget, test)</li>
-              <li>Averaged across all model variants</li>
-              <li>Averaged across both subtasks (entity-level and instance-level)</li>
+              <li>Averaged across all model sizes</li>
+              <li>Averaged across all unlearning methods</li>
+              <!-- <li>Averaged across both subtasks (entity-level and instance-level)</li> -->
             </ul>
 
             <h3>Ranking Criteria</h3>
@@ -248,7 +240,7 @@
             <ul>
               <li><strong>Accuracy:</strong> High precision in classifying retain/forget/test instances</li>
               <li><strong>Robustness:</strong> Consistent performance across different model sizes and unlearning methods</li>
-              <li><strong>Generalizability:</strong> Effective performance on both entity-level and instance-level tasks</li>
+              <!-- <li><strong>Generalizability:</strong> Effective performance on both entity-level and instance-level tasks</li> -->
               <li><strong>Language Independence:</strong> Stable results across multiple languages</li>
             </ul>
 

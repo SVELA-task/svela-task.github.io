@@ -54,12 +54,12 @@
 }
 
 .banner {
-  background-color: #004AAD;
+  background-color: #C66163;
 }
 
 h2,
 h3 {
-  color: #004AAD;
+  color: #C66163;
 }
 
 .custom-dropdown {
@@ -90,7 +90,7 @@ h3 {
 
 #share-url-copy-prompt {
   display: none;
-  color: #004AAD;
+  color: #C66163;
 }
 
 @media screen and (max-width: 1050px) {
@@ -122,4 +122,14 @@ h3 {
     1px -1px 0 #222,
     -1px 1px 0 #222,
     1px 1px 0 #222;  
+}
+
+/* Remove bullet points from ul.text lists */
+ul.text {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.text li {
+  margin-bottom: 10px;
 }
