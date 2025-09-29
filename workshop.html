@@ -103,6 +103,43 @@
             <p class="text">
               SVELA introduces the first multilingual synthetic dataset of fictional identities, ensuring that any knowledge the model shows comes solely from controlled fine-tuning, making forgetting measurable and reliable.
             </p>
+            
+            
+            <!-- NEW SECTION: Dataset Splits Release -->
+            <h3>Dataset Splits Release</h3>
+            <p class="text">
+              We have released official dataset splits on Hugging Face:
+            </p>
+            <ul>
+              <li>
+                <strong>SVELA – Train Split:</strong> 
+                <a href="https://huggingface.co/datasets/ClaudioSavelli/SVELA-train-split" target="_blank">view here</a>.<br>
+                Contains identities, topic IDs, and questions with labels for <em>retain</em>, <em>forget</em>, and <em>test</em>.
+              </li>
+              <li>
+                <strong>SVELA – Validation Split:</strong> 
+                <a href="https://huggingface.co/datasets/ClaudioSavelli/SVELA-val-split" target="_blank">view here</a>.<br>
+                Larger set with the same structure but <em>unlabeled</em>, provided for validation.
+              </li>
+            </ul>
+
+            <p class="text">
+              You can easily load the data using the 🤗 <code>datasets</code> library:
+            </p>
+<pre><code class="language-python">from datasets import load_dataset
+
+# --- Train split with labeled partitions ---
+retain = load_dataset("ClaudioSavelli/SVELA-train-split", split="retain")
+forget = load_dataset("ClaudioSavelli/SVELA-train-split", split="forget")
+test   = load_dataset("ClaudioSavelli/SVELA-train-split", split="test")
+
+# --- Unlabeled validation split ---
+val = load_dataset("ClaudioSavelli/SVELA-val-split", split="train")
+
+print(retain.column_names)
+# ['identity_id', 'name', 'language', 'topic_id', 'question']</code></pre>
+            <!-- END NEW SECTION -->
+
 
             <h3>Dataset Construction</h3>
             <p class="text">
