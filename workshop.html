@@ -57,17 +57,22 @@
             </p>
             
             <h3>Task 1: Entity-Level Unlearning Detection</h3>
-            <p class="text">
-              Participants are presented with a set of queries about various identities. They must determine for each identity whether they belong to:
-            </p>
-            <ul class="text">
-              <li>🤗 <strong>Retain set:</strong> Identities that were seen during training and preserved after the unlearning process</li>
-              <li>😶‍🌫️ <strong>Forget set:</strong> Identities that were seen during training but (hopefully) forgotten during the unlearning process</li>
-              <li>🫥 <strong>Test set:</strong> Identities that were never seen during training (unseen)</li>
-            </ul>
-            <p class="text">
-              This subtask determines whether the evaluation metric can accurately detect if a person has been removed from the model (and can still be split by the test set) using the full information about the individual.
-            </p>
+<p class="text">
+  Participants are presented with a set of queries about various identities. They must determine for each identity whether they belong to:
+</p>
+<ul class="text">
+  <li>🤗 <strong>Retain set:</strong> Identities that were seen during training and preserved after the unlearning process</li>
+  <li>😶‍🌫️ <strong>Forget set:</strong> Identities that were seen during training but (hopefully) forgotten during the unlearning process</li>
+  <li>🫥 <strong>Test set:</strong> Identities that were never seen during training (unseen)</li>
+</ul>
+<p class="text">
+  This subtask determines whether the evaluation metric can accurately detect if a person has been removed from the model (and can still be split by the test set) using the full information about the individual.
+</p>
+<p class="text">
+  <b>Baseline model available!</b> A first reference model has been released to help participants start testing their pipelines: 
+  <a href="https://huggingface.co/ClaudioSavelli/SVELA-model-unlearned_1B" target="_blank">SVELA-model-unlearned_1B</a>. 
+  Additional baseline models will be released soon.
+</p>
 
             <h3>Task 2: Instance-Level Unlearning Detection</h3>
             <p class="text">
