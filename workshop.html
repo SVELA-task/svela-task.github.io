@@ -68,18 +68,29 @@
 <p class="text">
   This subtask determines whether the evaluation metric can accurately detect if a person has been removed from the model (and can still be split by the test set) using the full information about the individual.
 </p>
-<p class="text">
-  <b>Baseline model available!</b> A first reference model has been released to help participants start testing their pipelines: 
-  <a href="https://huggingface.co/ClaudioSavelli/SVELA-model-unlearned_1B" target="_blank">SVELA-model-unlearned_1B</a>. 
-  Additional baseline models will be released soon.
-</p>
-
             <h3>Task 2: Instance-Level Unlearning Detection</h3>
             <p class="text">
               Participants are given individual questions about different individuals and must classify each as retain, forget, or test. Since a single identity may have both retained, forgotten, and unseen facts, this task evaluates the metric's ability to capture fine-grained forgetting.
 
               This subtask is more challenging as it requires distinguishing between different pieces of information about the same entity!
             </p>
+<h3>Baseline Models</h3>
+<p class="text">
+  Six baseline models are now available on Hugging Face, covering all combinations of model size, task, and unlearning variant. 
+  Specifically, the released models include:
+</p>
+<ul class="text">
+  <li><strong>Model sizes:</strong> 1B and 3B parameters</li>
+  <li><strong>Tasks:</strong> Task 1 (Entity-Level) and Task 2 (Instance-Level)</li>
+  <li><strong>Unlearning variants:</strong> Hidden unlearners <code>a</code> and <code>b</code></li>
+</ul>
+<p class="text">
+  In total, <strong>six models</strong> are provided to support your experiments, accessible at:<br>
+  👉 <a href="https://huggingface.co/SVELA-task" target="_blank">https://huggingface.co/SVELA-task</a>
+</p>
+<p class="text">
+  These models serve as starting points for participants wishing to evaluate their proposed metrics or methods for detecting unlearning behavior across multiple configurations. All the models have the same data splits, and multiple unlearning methods are given to test your method over different unlearning techniques, to be sure that you are not overfitting on a particular configuration.
+</p>
 
             <h3>Evaluation Approach</h3>
             <p class="text">
@@ -190,7 +201,7 @@ print(retain.column_names)
             <ul>
               <li><strong>Identities:</strong> 200 per language (800 total)</li>
               <li><strong>QA Pairs:</strong> 20 per identity (16,000 total)</li>
-              <li><strong>Model Variants:</strong> Three Llama 3 models (1B, 3B, 8B parameters)</li>
+              <li><strong>Model Variants:</strong> Two Llama 3 models (1B, 3B parameters)</li>
               <li><strong>Unlearning Algorithms:</strong> Multiple (but secret!) state-of-the-art methods
                 <!-- including Fine-Tuning, NegGrad, Advanced NegGrad, KL Divergence Minimization, and Preference Optimization</li> -->
             </ul>
